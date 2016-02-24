@@ -1,7 +1,9 @@
+// get all todo items
 function getAllTodos() {
   return todos;
 }
 
+// filter all todo items by active
 function getActiveTodos() {
   var activeTodos = _.filter(getAllTodos(), function(todo) {
     return todo.completed === false;
@@ -9,6 +11,7 @@ function getActiveTodos() {
   return activeTodos;
 }
 
+// filter all todo items by completed
 function getCompletedTodos() {
   var completedTodos = _.filter(getAllTodos(), function(todo) {
     return todo.completed === true;
@@ -16,6 +19,7 @@ function getCompletedTodos() {
   return completedTodos;
 }
 
+// grab new todo item object from new todo input
 function grabNewTodo() {
   var newTodo = $('input[name="newTodo"]').val();
   $('input[name="newTodo"]').val("");
@@ -25,14 +29,23 @@ function grabNewTodo() {
   };
 }
 
+// replace todo item text at given index with new text
+function editTodo(idx, newText) {
+  getAllTodos()[idx].text = newText;
+}
+
+// add given todo item to data
 function addTodo(newTodo) {
   todos.push(newTodo);
 }
 
+// remove todo item at given index from data
 function deleteTodo(idx) {
   todos.splice(idx, 1);
 }
 
+// DOES NOT WORK?
+// remove all completed todo items from data
 function clearCompletedTodos() {
   _.each(getCompletedTodos(), function(completedTodo) {
     deleteTodo(completedTodo);
@@ -40,16 +53,19 @@ function clearCompletedTodos() {
   addTodosToDom(getAllTodos());
 }
 
+// create HTML string for active todo item
 function createTodoStr(todo) {
   var todoTempl = _.template($('#todoTempl').html());
   return todoTempl(todo);
 };
 
+// create HTML string for completed todo item
 function createComplTodoStr(todo) {
   var complTodoTempl = _.template($('#complTodoTempl').html());
   return complTodoTempl(todo);
 };
 
+// add given todo item to target HTML element
 function addTodoToDom(todo, $target) {
   if (todo.completed === true) {
     $target.append(createComplTodoStr(todo));
@@ -59,6 +75,7 @@ function addTodoToDom(todo, $target) {
   }
 }
 
+// add given todo items to DOM
 function addTodosToDom(todos) {
   $('span').html('');
   _.each(todos, function (todo, idx) {
@@ -67,6 +84,7 @@ function addTodosToDom(todos) {
   })
 }
 
+// display items left HTML
 function displayItemsLeft() {
   var itemsLeft = getActiveTodos().length;
   if (getAllTodos() === 0){
@@ -80,13 +98,25 @@ function displayItemsLeft() {
   }
 }
 
-$('form').on("submit", function(event) {
+// submit on new todo form, add new todo to data array and DOM
+$("form.new").on("submit", function(event) {
   event.preventDefault();
   addTodo(grabNewTodo());
   addTodosToDom(getAllTodos());
   displayItemsLeft();
 });
 
+// submit on todo item form, edit item in data array and reset DOM
+$("span").on("submit", "form", function(event) {
+  event.preventDefault();
+  var newText = $(this).find('input').val();
+  var idx = $(this).children('.todo-box').attr('data-idx');
+  editTodo(idx, newText);
+  addTodosToDom(getAllTodos());
+  displayItemsLeft();
+});
+
+// click check circle, toggle completed in CSS and data
 $('span').on('click', '.check-circle', function(event) {
   $thisTodo = $(this).parent()
   thisIdx = $thisTodo.attr('data-idx');
@@ -101,6 +131,7 @@ $('span').on('click', '.check-circle', function(event) {
   displayItemsLeft();
 });
 
+// filter todo items by all/active/completed
 $('nav').on('click', 'li', function(event) {
   if (!$(this).hasClass('current')) {
     $(this).addClass('current');
@@ -119,6 +150,7 @@ $('nav').on('click', 'li', function(event) {
   }
 });
 
+// clear completed items from data and DOM
 $('.clear-completed').on('click', function(event) {
   todos = getActiveTodos();
   addTodosToDom(getAllTodos());

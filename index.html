@@ -6,22 +6,26 @@
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <script type="text/template" id="todoTempl">
-      <div class="todo-box" data-idx="<%= idx %>">
-        <div class="check-circle"></div>
-        <input type="text" name="name" value="<%= text %>" readonly="true" onclick="this.readOnly=false">
-      </div>
+      <form class="">
+        <div class="todo-box" data-idx="<%= idx %>">
+          <div class="check-circle"></div>
+          <input type="text" name="name" value="<%= text %>" readonly="true" onclick="this.readOnly=false">
+        </div>
+      </form>
     </script>
     <script type="text/template" id="complTodoTempl">
-      <div class="todo-box completed" data-idx="<%= idx %>">
-        <div class="check-circle"></div>
-        <input type="text" name="name" value="<%= text %>" readonly="true" onclick="this.readOnly=false">
-      </div>
+      <form class="">
+        <div class="todo-box completed" data-idx="<%= idx %>">
+          <div class="check-circle"></div>
+          <input type="text" name="name" value="<%= text %>" readonly="true" onclick="this.readOnly=false">
+        </div>
+      </form>
     </script>
   </head>
   <body>
     <h1>todos</h1>
     <section class="all">
-      <form class="">
+      <form class="new">
         <div class="todo-box" id="newTodo">
           <i class="fa fa-chevron-down" id="downChev"></i>
           <input type="text" name="newTodo" placeholder="what do you need to do?" readonly="true" onclick="this.readOnly=false">
