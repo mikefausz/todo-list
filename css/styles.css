@@ -1,0 +1,107 @@
+body {
+  background-color: #F5F5F5;
+  color: #E6E6E6;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin: 0; }
+
+h1 {
+  font-weight: 100;
+  font-size: 8rem;
+  margin: 0;
+  color: #E6D8D8;
+  text-align: center; }
+
+section {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  background: white;
+  font-size: 2rem;
+  font-weight: 300;
+  -webkit-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
+  -moz-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
+  box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55); }
+
+.todo-box {
+  padding: 2% 1%;
+  border-bottom: 1px #E6E6E6 solid; }
+
+#downChev {
+  font-size: 24px;
+  margin-left: 1%; }
+
+.check-circle {
+  height: 30px;
+  width: 30px;
+  border: 1px solid #E6E6E6;
+  border-radius: 100%;
+  vertical-align: middle;
+  display: inline-block; }
+
+input {
+  border: none;
+  border-color: transparent;
+  font-size: 2rem;
+  width: 90%;
+  font-weight: 300;
+  padding: 2%;
+  color: #4D4D4D;
+  vertical-align: middle; }
+
+.completed .check-circle {
+  color: #7BBDAD;
+  background-image: url(../images/checkmark.png);
+  background-repeat: no-repeat;
+  background-size: 72%;
+  background-position-x: 5px;
+  background-position-y: 4px;
+  border-color: #7BBDAD; }
+
+.completed input {
+  color: #E6E6E6;
+  text-decoration: line-through; }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: 100;
+  color: grey;
+  padding: 1%; }
+  nav div {
+    display: inline-block;
+    width: 30%; }
+  nav p {
+    margin: 5px 10px; }
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between; }
+  nav li {
+    display: inline-block; }
+  nav .clear-completed {
+    margin-right: 0;
+    text-align: right; }
+  nav .current {
+    border: 1px solid #E6E6E6;
+    border-radius: 5px; }
+
+#second {
+  height: 6px;
+  width: 89%;
+  margin: auto;
+  background: white;
+  -webkit-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
+  -moz-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
+  box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55); }
+
+#third {
+  height: 6px;
+  width: 88%;
+  margin: auto;
+  background: white;
+  -webkit-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
+  -moz-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
+  box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55); }
