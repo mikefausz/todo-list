@@ -1,10 +1,19 @@
+html, body, #content {
+  height: 97%; }
+
 body {
   background-color: #F5F5F5;
-  color: #E6E6E6;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
   margin: 0; }
 
+#content {
+  height: auto;
+  min-height: 97%;
+  padding-bottom: 2em; }
+
 h1 {
+  font-family: "Yantramanav", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 100;
   font-size: 8rem;
   margin: 0;
@@ -23,30 +32,46 @@ section {
   box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55); }
 
 .todo-box {
-  padding: 2% 1%;
+  padding: 2%;
   border-bottom: 1px #E6E6E6 solid; }
 
 #downChev {
   font-size: 24px;
-  margin-left: 1%; }
+  margin-left: 7.5%; }
+
+.icon-box {
+  color: #E6E6E6;
+  display: inline-block;
+  width: 6%; }
 
 .check-circle {
   height: 30px;
   width: 30px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid;
   border-radius: 100%;
   vertical-align: middle;
   display: inline-block; }
+
+.input-box {
+  display: inline-block;
+  width: 91%; }
 
 input {
   border: none;
   border-color: transparent;
   font-size: 2rem;
-  width: 90%;
+  width: 100%;
   font-weight: 300;
-  padding: 2%;
+  padding: 1%;
   color: #4D4D4D;
   vertical-align: middle; }
+
+input::-webkit-input-placeholder {
+  color: #C7C7C7;
+  font-weight: 300; }
+
+span .icon-box {
+  width: 7%; }
 
 .completed .check-circle {
   color: #7BBDAD;
@@ -66,13 +91,16 @@ nav {
   justify-content: space-between;
   font-size: 1.25rem;
   font-weight: 100;
-  color: grey;
+  color: #777777;
   padding: 1%; }
   nav div {
-    display: inline-block;
-    width: 30%; }
+    display: inline-block; }
   nav p {
-    margin: 5px 10px; }
+    margin: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 5px; }
+  nav .items-left {
+    min-width: 129px; }
   nav ul {
     list-style-type: none;
     padding: 0;
@@ -83,12 +111,13 @@ nav {
     display: inline-block; }
   nav .clear-completed {
     margin-right: 0;
+    min-width: 165px;
     text-align: right; }
   nav .current {
     border: 1px solid #E6E6E6;
     border-radius: 5px; }
 
-#second {
+#second, #third {
   height: 6px;
   width: 89%;
   margin: auto;
@@ -98,10 +127,14 @@ nav {
   box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55); }
 
 #third {
-  height: 6px;
-  width: 88%;
-  margin: auto;
-  background: white;
-  -webkit-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
-  -moz-box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55);
-  box-shadow: 0px 2px 11px -1px rgba(107, 107, 107, 0.55); }
+  width: 88%; }
+
+footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 2em;
+  margin-top: -2em;
+  color: #C7C7C7;
+  width: 100%;
+  text-align: center; }

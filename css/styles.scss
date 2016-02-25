@@ -2,16 +2,29 @@ $bgGrey: #F5F5F5;
 $titleGrey: #E6D8D8;
 $ltGrey: #E6E6E6;
 $dkGrey: #4D4D4D;
+$navGrey: #777777;
+$footGrey: #C7C7C7;
 $green: #7BBDAD;
+
+html, body, #content {
+  height: 97%;
+}
 
 body {
   background-color: $bgGrey;
-  color: $ltGrey;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
   margin: 0;
 }
 
+#content {
+  height: auto;
+  min-height: 97%;
+  padding-bottom: 2em;
+}
+
 h1 {
+  font-family: "Yantramanav", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 100;
   font-size: 8rem;
   margin: 0;
@@ -20,7 +33,6 @@ h1 {
 }
 
 section {
-  // z-index: 3;
   position: relative;
   width: 90%;
   margin: auto;
@@ -33,39 +45,57 @@ section {
 }
 
 .todo-box {
-  padding: 2% 1%;
+  padding: 2%;
   border-bottom: 1px $ltGrey solid;
 }
 
 #downChev {
   font-size: 24px;
-  margin-left: 1%;
+  margin-left: 7.5%;
+}
+
+.icon-box {
+  color: $ltGrey;
+  display: inline-block;
+  width: 6%;
 }
 
 .check-circle {
   height: 30px;
   width: 30px;
-  border: 1px solid $ltGrey;
+  border: 1px solid;
   border-radius: 100%;
   vertical-align: middle;
   display: inline-block;
+}
+
+.input-box {
+  display: inline-block;
+  width: 91%;
 }
 
 input {
   border: none;
   border-color: transparent;
   font-size: 2rem;
-  width: 90%;
+  width: 100%;
   font-weight: 300;
-  padding: 2%;
+  padding: 1%;
   color: $dkGrey;
   vertical-align: middle;
 }
 
+input::-webkit-input-placeholder {
+	color: $footGrey;
+  // opacity: .5;
+	font-weight: 300;
+}
 
-// [placeholder]:focus::-webkit-input-placeholder {
-//   color: transparent;
-// }
+span {
+  .icon-box {
+    width: 7%;
+  }
+}
 
 .completed {
   .check-circle {
@@ -88,14 +118,18 @@ nav {
   justify-content: space-between;
   font-size: 1.25rem;
   font-weight: 100;
-  color: grey;
+  color: $navGrey;
   padding: 1%;
   div {
     display: inline-block;
-    width: 30%;
   }
   p {
     margin: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }
+  .items-left {
+    min-width: 129px;
   }
   ul {
     list-style-type: none;
@@ -109,6 +143,7 @@ nav {
   }
   .clear-completed {
     margin-right: 0;
+    min-width: 165px;
     text-align: right;
   }
   .current {
@@ -118,7 +153,6 @@ nav {
 }
 
 #second {
-  // z-index: 2;
   height: 6px;
   width: 89%;
   margin: auto;
@@ -129,12 +163,17 @@ nav {
 }
 
 #third {
-  // z-index: 1;
-  height: 6px;
+  @extend #second;
   width: 88%;
-  margin: auto;
-  background: white;
-  -webkit-box-shadow: 0px 2px 11px -1px rgba(107,107,107,0.55);
-  -moz-box-shadow: 0px 2px 11px -1px rgba(107,107,107,0.55);
-  box-shadow: 0px 2px 11px -1px rgba(107,107,107,0.55);
+}
+
+footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 2em;
+  margin-top: -2em;
+  color: $footGrey;
+  width: 100%;
+  text-align: center;
 }
