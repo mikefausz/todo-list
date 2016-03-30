@@ -1,5 +1,5 @@
 # Todo List
-CRUDdy Todo List built from wireframe
+CRUD-dy Todo List built from wireframe
 
 ----------------------------------
 
